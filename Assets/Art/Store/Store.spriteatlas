@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Store
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e64e8887a3ebc9247af35a6c6cc674bc, type: 3}
+    - {fileID: 2800000, guid: 41814a8aca270dd42868a66bf9e07f4c, type: 3}
+    - {fileID: 2800000, guid: df84d0207efc3ff4dafb014c809641f7, type: 3}
+    - {fileID: 2800000, guid: ca106c696768cf64b845f1b222aa2c00, type: 3}
+    - {fileID: 21300000, guid: ca106c696768cf64b845f1b222aa2c00, type: 3}
+    - {fileID: 2800000, guid: a73f97189df100542b70fa72525b3e08, type: 3}
+    - {fileID: 2800000, guid: 400983536b3e47a4b8c8ad0d8c2ffddd, type: 3}
+    - {fileID: 2800000, guid: 5e34ff26d54c26a4ab997c33621ab456, type: 3}
+    - {fileID: 2800000, guid: 1a7c826f95b749f4a83d314ec19d9b83, type: 3}
+    - {fileID: 2800000, guid: 7354b6fbc6b208b4bab03b4d89f98d4d, type: 3}
+    - {fileID: 2800000, guid: f6fa6af39571e4f4c90ae58bc7adccc5, type: 3}
+    totalSpriteSurfaceArea: 1104384
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: df84d0207efc3ff4dafb014c809641f7, type: 3}
+  - {fileID: 21300000, guid: 400983536b3e47a4b8c8ad0d8c2ffddd, type: 3}
+  - {fileID: 21300000, guid: f6fa6af39571e4f4c90ae58bc7adccc5, type: 3}
+  - {fileID: 21300000, guid: 5e34ff26d54c26a4ab997c33621ab456, type: 3}
+  - {fileID: 21300000, guid: e64e8887a3ebc9247af35a6c6cc674bc, type: 3}
+  - {fileID: 21300000, guid: a73f97189df100542b70fa72525b3e08, type: 3}
+  - {fileID: 21300000, guid: ca106c696768cf64b845f1b222aa2c00, type: 3}
+  - {fileID: 21300000, guid: 41814a8aca270dd42868a66bf9e07f4c, type: 3}
+  - {fileID: 21300000, guid: 7354b6fbc6b208b4bab03b4d89f98d4d, type: 3}
+  - {fileID: 21300000, guid: 1a7c826f95b749f4a83d314ec19d9b83, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - caldron (256x256)
+  - decoration2 (512x256) (animation)
+  - ground_store (128x44)
+  - decoration2 (512x256)
+  - balcony (512x512)
+  - decoration1 (256x256)
+  - chair (256x256)
+  - bg_store (128x128)
+  - fireplace (480x480)
+  - decorationtemplate (512x256)
+  m_Tag: Store
+  m_IsVariant: 0
