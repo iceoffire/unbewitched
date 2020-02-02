@@ -750,6 +750,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 66d6e92d5be293b4aacb95005a3c3574, type: 2}
   - {fileID: 11400000, guid: f32aa9fd6be607e4bb61b23b44a6241d, type: 2}
   - {fileID: 11400000, guid: e10c3273f5af0a14ead841b27058c9fb, type: 2}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!1 &869814537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869481342}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: balcao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1292,7 +1294,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869481341}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1301,7 +1303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -78, y: -45}
+  m_AnchoredPosition: {x: -78.000015, y: -44.99994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1983129449

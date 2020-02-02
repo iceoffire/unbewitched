@@ -10,30 +10,46 @@ public class Chair
 {
     public GameObject chairGameObject;
     public Player playerSited;
-    public bool isUsed;
+    public bool isUsed
+    {
+        get
+        {
+            return playerSited != null;
+        }
+    }
 
     public Chair(GameObject gameObject)
     {
         this.chairGameObject = gameObject;
-        this.isUsed = false;
     }
 
 
-    public void SitOnItAndUpdatePlayer(Player player)
+    public void SitOnItAndAnimateFadeInPlayerAndUpdatePosition(Player player)
     {
-        this.isUsed = true;
+        if (player == null) return;
         this.playerSited = player;
         player.MakeAnimationsAndUpdatePlayerPosition(this.chairGameObject.GetComponent<RectTransform>());
-        if (ChairController.CanMakeAPlayerGoToBalcony())
-        {
-            ChairController.SendFirstPlayerToBalcony();
-        }
+        ChairController.UpdateAllPlayersToNextChair();
     }
 
     public void DisposeIt()
     {
-        this.isUsed = false;
-        this.chairGameObject = default;
+        GameObject.Destroy(this.playerSited.gameObject);
+        this.playerSited = null;
+    }
+
+    public void SetFree()
+    {
+        this.playerSited = null;
+    }
+
+    public void SitOnIt(Player player)
+    {
+        if (player == null) return;
+        this.playerSited = player;
+        Vector3 finalDestination = this.chairGameObject.transform.position;
+        finalDestination.y = SpawnPlayerOnStore.initialY;
+        // player.gameObject.transform.DOMove(finalDestination, 1);
     }
 }
 

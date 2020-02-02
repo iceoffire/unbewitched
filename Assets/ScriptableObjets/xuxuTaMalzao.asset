@@ -16,7 +16,7 @@ MonoBehaviour:
   - Huarrhh
   - Arahrahuhrhuhahrau
   - I Gonna <b>KILL</b> you.
-  whoIAm: 1
+  whoAmI: 1
   head:
     bodyPart: 1
     notifyInformation:

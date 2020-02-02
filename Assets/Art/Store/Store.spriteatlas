@@ -48,17 +48,15 @@ SpriteAtlas:
     - {fileID: 2800000, guid: ca106c696768cf64b845f1b222aa2c00, type: 3}
     - {fileID: 21300000, guid: ca106c696768cf64b845f1b222aa2c00, type: 3}
     - {fileID: 2800000, guid: a73f97189df100542b70fa72525b3e08, type: 3}
-    - {fileID: 2800000, guid: 400983536b3e47a4b8c8ad0d8c2ffddd, type: 3}
     - {fileID: 2800000, guid: 5e34ff26d54c26a4ab997c33621ab456, type: 3}
     - {fileID: 2800000, guid: 1a7c826f95b749f4a83d314ec19d9b83, type: 3}
     - {fileID: 2800000, guid: 7354b6fbc6b208b4bab03b4d89f98d4d, type: 3}
     - {fileID: 2800000, guid: f6fa6af39571e4f4c90ae58bc7adccc5, type: 3}
-    totalSpriteSurfaceArea: 1104384
+    totalSpriteSurfaceArea: 973312
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: df84d0207efc3ff4dafb014c809641f7, type: 3}
-  - {fileID: 21300000, guid: 400983536b3e47a4b8c8ad0d8c2ffddd, type: 3}
   - {fileID: 21300000, guid: f6fa6af39571e4f4c90ae58bc7adccc5, type: 3}
   - {fileID: 21300000, guid: 5e34ff26d54c26a4ab997c33621ab456, type: 3}
   - {fileID: 21300000, guid: e64e8887a3ebc9247af35a6c6cc674bc, type: 3}
@@ -69,7 +67,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1a7c826f95b749f4a83d314ec19d9b83, type: 3}
   m_PackedSpriteNamesToIndex:
   - caldron (256x256)
-  - decoration2 (512x256) (animation)
   - ground_store (128x44)
   - decoration2 (512x256)
   - balcony (512x512)

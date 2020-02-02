@@ -8,12 +8,18 @@ public class SpawnPlayerOnStore : MonoBehaviour
     public GameObject playerPrefab;
     public List<PlayerDiagnosticInfo> playerDiagnosticInfos;
     static SpawnPlayerOnStore singleton;
+    public static float initialY;
+
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     private void Awake()
     {
         singleton = this;
         StopAllCoroutines();
+        initialY = this.transform.position.y;
         StartCoroutine(SpawnPlayerEveryFiveSeconds());
+        Debug.Log("Loaded");
     }
 
     private IEnumerator SpawnPlayerEveryFiveSeconds()
@@ -22,6 +28,10 @@ public class SpawnPlayerOnStore : MonoBehaviour
         while (true)
         {
             SpawnPlayerOnStore.VerifyIfCanSpawnAndSpawn();
+            if (ChairController.ThereIsAnyFreeChairToGet())
+            {
+                audioSource.PlayOneShot(audioClip);
+            }
             yield return new WaitForSeconds(2);
         }
     }
@@ -31,13 +41,13 @@ public class SpawnPlayerOnStore : MonoBehaviour
     {
         try
         {
+            ChairController.UpdateAllPlayersToNextChair();
             PlayerDiagnosticInfo playerDiagnosticInfo = GetRandomPlayerDiagnosticInfo();
             Chair freeChair = ChairController.GetFirstChairFree();
             GameObject player = Instantiate(singleton.playerPrefab, singleton.transform);
             Player spawned = player.GetComponent<Player>();
             spawned.UpdateValuesAndDraw(playerDiagnosticInfo);
-            freeChair.SitOnItAndUpdatePlayer(spawned);
-            DontDestroyOnLoad(spawned);
+            freeChair.SitOnItAndAnimateFadeInPlayerAndUpdatePosition(spawned);
         }
         catch
         {
@@ -58,6 +68,7 @@ public class SpawnPlayerOnStore : MonoBehaviour
         Player spawned = player.GetComponent<Player>();
         spawned.UpdateValuesAndDraw(playerDiagnosticInfo);
         spawned.transform.position = freeChair.chairGameObject.transform.position;
+        freeChair.SitOnIt(spawned);
     }
 
     public static void StopCoroutines()

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 [Serializable]
 public class Player : MonoBehaviour
@@ -15,7 +13,14 @@ public class Player : MonoBehaviour
     public BodyPart torso;
     public BodyPart arms;
     public BodyPart legs;
-    public bool isActivable;
+    public bool isOnBalcony
+    {
+        get
+        {
+            return isActivable;
+        }
+    }
+    public bool isActivable=false;
         
     public PlayerDiagnosticInfo playerDiagnosticInfo;
 
@@ -50,8 +55,8 @@ public class Player : MonoBehaviour
             // further -> call transition
             DiagnosticSceneInformation.LoadInformation(this.playerDiagnosticInfo);
             SpawnPlayerOnStore.StopCoroutines();
-            StoreSceneInfo.SaveOldInformation(ChairController.GetChairsInfo());
-            SceneManager.LoadScene("Diagnóstico");
+            StoreSceneInfo.SaveOldInformation(ChairController.GetChairsInfo(), this.playerDiagnosticInfo);
+            SceneManager.LoadScene((int)SceneIndexes.Diagnostico);
         }
     }
 

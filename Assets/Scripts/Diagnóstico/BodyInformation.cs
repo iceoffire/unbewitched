@@ -7,7 +7,6 @@ public struct BodyInformation
     public NotifyInformation notifyInformation;
 }
 
-
 public enum BodyPartOrigin
 {
     Frog,

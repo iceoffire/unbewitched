@@ -6,13 +6,15 @@ using UnityEngine;
 public class StoreSceneInfo : MonoBehaviour
 {
     static List<Chair> chairsInfo;
+    public static PlayerDiagnosticInfo lastPlayerDiagnosticInfo;
     public static bool hasChangedSceneAtLeastOneTime = false;
 
     public static List<PlayerDiagnosticInfo> playersInfo = new List<PlayerDiagnosticInfo>();
 
-    public static void SaveOldInformation(List<Chair> chairsInfo)
+    public static void SaveOldInformation(List<Chair> chairsInfo, PlayerDiagnosticInfo lastPlayerDiagnosticInfo)
     {
         playersInfo = new List<PlayerDiagnosticInfo>();
+        StoreSceneInfo.lastPlayerDiagnosticInfo = lastPlayerDiagnosticInfo;
         foreach (Chair chair in chairsInfo.ToArray())
         {
             if (chair.playerSited != null)

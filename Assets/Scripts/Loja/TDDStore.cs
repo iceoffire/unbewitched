@@ -9,7 +9,7 @@ public class TDDStore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("Diagnóstico");
+        SceneManager.LoadScene((int)SceneIndexes.Diagnostico);
         DiagnosticSceneInformation.LoadInformation(playerDiagnosticInfo);
     }
 

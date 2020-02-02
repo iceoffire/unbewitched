@@ -8,6 +8,6 @@ public class TDDDiagnostico : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Store");
+        SceneManager.LoadScene((int)SceneIndexes.Store);
     }
 }

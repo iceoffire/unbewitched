@@ -3,7 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags: [ingrediente]
   layers:
   - Default
   - TransparentFX
@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - BG00
+  - BG01
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG00
+    uniqueID: 3579988543
+    locked: 0
+  - name: BG01
+    uniqueID: 141626367
     locked: 0

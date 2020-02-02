@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDiagnosticInfo : ScriptableObject
 {
     public List<string> preDialogForTheWitcher;
-    public BodyPartOrigin whoIAm;
+    public BodyPartOrigin whoAmI;
 
     public BodyInformation head;
     public BodyInformation torso;

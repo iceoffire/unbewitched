@@ -24,7 +24,7 @@ public class Clickable : MonoBehaviour
 
     private bool IsGamePlaying()
     {
-        return DiagnosticSceneController.diagnosticState == DiagnosticSceneController.DiagnosticState.Playing;
+        return DiagnosticSceneController.diagnosticState == DiagnosticSceneController.DiagnosticState.MakingPotion;
     }
 
     private void OnMouseEnter()
