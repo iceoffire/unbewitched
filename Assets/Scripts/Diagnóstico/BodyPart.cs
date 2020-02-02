@@ -4,12 +4,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Serializable]
 public class BodyPart : MonoBehaviour
 {
     [SerializeField]
     List<BodyImage> bodyImages;
 
-    Image image;
+    public Image image;
     BodyPartOrigin bodyPartOrigin;
 
     void Awake()

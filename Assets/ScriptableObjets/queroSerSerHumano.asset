@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebba20b2c11fec4987988c675dfa881, type: 3}
+  m_Name: queroSerSerHumano
+  m_EditorClassIdentifier: 
+  preDialogForTheWitcher:
+  - Change me to human race
+  whoIAm: 2
+  head:
+    bodyPart: 2
+    notifyInformation:
+      isClickable: 1
+      textOnWandClick: 
+      textOnExaminateClick: Soft like a Frog
+      textOnLookClick: He's a Frog
+  torso:
+    bodyPart: 2
+    notifyInformation:
+      isClickable: 1
+      textOnWandClick: 
+      textOnExaminateClick: 
+      textOnLookClick: Look like he has been working out at gym
+  arm:
+    bodyPart: 1
+    notifyInformation:
+      isClickable: 1
+      textOnWandClick: 
+      textOnExaminateClick: 
+      textOnLookClick: big arms
+  leg:
+    bodyPart: 3
+    notifyInformation:
+      isClickable: 1
+      textOnWandClick: 
+      textOnExaminateClick: 
+      textOnLookClick: miniLeg

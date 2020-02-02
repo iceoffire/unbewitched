@@ -10,38 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ebba20b2c11fec4987988c675dfa881, type: 3}
-  m_Name: tutorial
+  m_Name: euVouVirarPrince
   m_EditorClassIdentifier: 
   preDialogForTheWitcher:
-  - Huarrhh
-  - Arahrahuhrhuhahrau
-  - I Gonna <b>KILL</b> you.
-  whoIAm: 1
+  - I want to be a Prince
+  - Just because I'm a Frog, nobody want to marry me
+  whoIAm: 0
   head:
-    bodyPart: 1
+    bodyPart: 0
     notifyInformation:
       isClickable: 1
       textOnWandClick: 
-      textOnExaminateClick: 
-      textOnLookClick: It seens like he's <b>really</b> an cthulho from deepweb
+      textOnExaminateClick: Soft like a Frog
+      textOnLookClick: He's a Frog
   torso:
     bodyPart: 0
     notifyInformation:
       isClickable: 1
-      textOnWandClick: Option Wand
-      textOnExaminateClick: Option Examinate
-      textOnLookClick: Option Look
+      textOnWandClick: 
+      textOnExaminateClick: 
+      textOnLookClick: Look like he has been working out at gym
   arm:
     bodyPart: 0
     notifyInformation:
       isClickable: 1
       textOnWandClick: 
       textOnExaminateClick: 
-      textOnLookClick: 
+      textOnLookClick: big arms
   leg:
     bodyPart: 0
     notifyInformation:
-      isClickable: 0
+      isClickable: 1
       textOnWandClick: 
       textOnExaminateClick: 
-      textOnLookClick: 
+      textOnLookClick: miniLeg
