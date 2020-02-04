@@ -22,7 +22,7 @@ public class ChairController : MonoBehaviour
     {
         if (StoreSceneInfo.hasChangedSceneAtLeastOneTime)
         {
-            
+            LoadChairs();
         }
         else
         {
