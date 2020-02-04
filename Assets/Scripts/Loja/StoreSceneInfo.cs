@@ -8,6 +8,7 @@ public class StoreSceneInfo : MonoBehaviour
     static List<Chair> chairsInfo;
     public static PlayerDiagnosticInfo lastPlayerDiagnosticInfo;
     public static bool hasChangedSceneAtLeastOneTime = false;
+    public static bool win=false;
 
     public static List<PlayerDiagnosticInfo> playersInfo = new List<PlayerDiagnosticInfo>();
 

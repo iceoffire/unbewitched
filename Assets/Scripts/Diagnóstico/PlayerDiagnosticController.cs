@@ -7,6 +7,7 @@ public class PlayerDiagnosticController : MonoBehaviour
     public BodyPart torso;
     public BodyPart arms;
     public BodyPart legs;
+    public PlayerDiagnosticInfo info;
     static PlayerDiagnosticController singleton;
 
     private void Awake()
@@ -16,10 +17,16 @@ public class PlayerDiagnosticController : MonoBehaviour
 
     public static void LoadAllBodyParts(PlayerDiagnosticInfo playerDiagnosticInfo)
     {
+        singleton.info = playerDiagnosticInfo;
         LoadHead(playerDiagnosticInfo.head);
         LoadTorso(playerDiagnosticInfo.torso);
         LoadArm(playerDiagnosticInfo.arm);
         LoadLegs(playerDiagnosticInfo.leg);
+    }
+
+    public static bool IsInfoEquals(BodyPartOrigin info)
+    {
+        return singleton.info.whoAmI == info;
     }
 
     private static void LoadLegs(BodyInformation leg)

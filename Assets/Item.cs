@@ -79,11 +79,13 @@ public class Item : MonoBehaviour
 public enum TypeItem
 {
     batwing,
-    flower,
-    phoenixfather,
-    ogretooth,
-    earrabiit,
-    mush,
+    chickenfoot,
+    earrabbit,
     eye,
+    horn,
+    mush,
+    ogretooth,
+    phoenixfather,
+    flower,
     tentacle
 }
