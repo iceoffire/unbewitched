@@ -1,83 +1,90 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnPlayerOnStore : MonoBehaviour
 {
-    public GameObject playerPrefab;
-    public List<PlayerDiagnosticInfo> playerDiagnosticInfos;
+    public Player playerPrefab;
+    public RectTransform spawnOrigin;
     static SpawnPlayerOnStore singleton;
+    public List<PlayerDiagnosticInfo> playerDiagnosticInfos;
     public static float initialY;
 
-    public AudioSource audioSource;
-    public AudioClip audioClip;
-
-    private void Awake()
+    void Awake()
     {
         singleton = this;
-        StopAllCoroutines();
-        initialY = this.transform.position.y;
+        StartSpawningPlayerOnStore();
+        initialY = spawnOrigin.transform.position.y;
+    }
+
+    private void StartSpawningPlayerOnStore()
+    {
         StartCoroutine(SpawnPlayerEveryFiveSeconds());
-        Debug.Log("Loaded");
     }
 
     private IEnumerator SpawnPlayerEveryFiveSeconds()
     {
-        yield return new WaitForSeconds(1);
-        while (true)
+        yield return new WaitForSeconds(2);
+        while(true)
         {
-            SpawnPlayerOnStore.VerifyIfCanSpawnAndSpawn();
-            if (ChairController.ThereIsAnyFreeChairToGet())
-            {
-                audioSource.PlayOneShot(audioClip);
-            }
-            yield return new WaitForSeconds(2);
-        }
-    }
-
-
-    static void SpawnNewPlayer()
-    {
-        try
-        {
-            ChairController.UpdateAllPlayersToNextChair();
-            PlayerDiagnosticInfo playerDiagnosticInfo = GetRandomPlayerDiagnosticInfo();
-            Chair freeChair = ChairController.GetFirstChairFree();
-            GameObject player = Instantiate(singleton.playerPrefab, singleton.transform);
-            Player spawned = player.GetComponent<Player>();
-            spawned.UpdateValuesAndDraw(playerDiagnosticInfo);
-            freeChair.SitOnItAndAnimateFadeInPlayerAndUpdatePosition(spawned);
-        }
-        catch
-        {
+            VerifyIfCanSpawnAndSpawn();
+            yield return new WaitForSeconds(5);
         }
     }
 
     public static void VerifyIfCanSpawnAndSpawn()
     {
-        if (ChairController.ThereIsAnyFreeChairToGet())
+        if (ThereIsAnyFreeChair())
         {
-            SpawnNewPlayer();
+            Player player = SpawnPlayerAndSetOriginPosition();
+            Chair freeChair = ChairController.GetFirstChairFree();
+            singleton.StartCoroutine(WaitHalfSecondAnsSitOnTheChair(player,freeChair));
         }
     }
 
-    internal static void SpawnInChairWithoutAnimation(Chair freeChair, PlayerDiagnosticInfo playerDiagnosticInfo)
+    private static IEnumerator WaitHalfSecondAnsSitOnTheChair(Player player, Chair freeChair)
     {
-        GameObject player = Instantiate(singleton.playerPrefab, singleton.transform);
-        Player spawned = player.GetComponent<Player>();
-        spawned.UpdateValuesAndDraw(playerDiagnosticInfo);
-        spawned.transform.position = freeChair.chairGameObject.transform.position;
-        freeChair.SitOnIt(spawned);
+        yield return new WaitForSeconds(0.5f);
+        freeChair.SitOnIt(player);
     }
 
-    public static void StopCoroutines()
+    private static bool ThereIsAnyFreeChair()
     {
-        singleton.StopAllCoroutines();
+        return ChairController.ThereIsAnyFreeChairToGet();
     }
 
-    static PlayerDiagnosticInfo GetRandomPlayerDiagnosticInfo()
+    static Player SpawnPlayerAndSetOriginPosition()
     {
-        return singleton.playerDiagnosticInfos[new System.Random().Next(0, singleton.playerDiagnosticInfos.Count)];
+        singleton.StartCoroutine(singleton.AnimateDoor());
+        Player player = InstantiatePlayer();
+        player.transform.localPosition = singleton.spawnOrigin.localPosition;
+        return player;
+    }
+
+    private static Player InstantiatePlayer()
+    {
+        Player player = Instantiate(singleton.playerPrefab, singleton.transform).GetComponent<Player>();
+        return player;
+    }
+
+    public static PlayerDiagnosticInfo GetRandomPlayerDiagnosticInfo()
+    {
+        int amountPlayerDiagnosticInfo = singleton.playerDiagnosticInfos.Count;
+        int randomIndex = new System.Random().Next(0,amountPlayerDiagnosticInfo);
+        return singleton.playerDiagnosticInfos[randomIndex];
+    }
+
+    private IEnumerator AnimateDoor()
+    {
+        Door.Open();
+        yield return new WaitForSeconds(1);
+        Door.Close();
+    }
+
+    static bool CanSpawn()
+    {
+        return false;
     }
 }

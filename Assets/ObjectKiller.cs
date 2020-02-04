@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObjectKiller : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "ingrediente")
+        if (other.gameObject.tag == "ingrediente")
         {
-            IngredientesController.SpawnNewItem(collision.GetComponent<Item>());
+            IngredientesController.SpawnNewItem(other.GetComponent<Item>());
         }
-        Destroy(collision.gameObject);
+        Destroy(other.gameObject);
     }
 }

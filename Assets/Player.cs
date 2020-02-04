@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 [Serializable]
@@ -54,7 +53,7 @@ public class Player : MonoBehaviour
         {
             // further -> call transition
             DiagnosticSceneInformation.LoadInformation(this.playerDiagnosticInfo);
-            SpawnPlayerOnStore.StopCoroutines();
+            // SpawnPlayerOnStore.StopCoroutines();
             StoreSceneInfo.SaveOldInformation(ChairController.GetChairsInfo(), this.playerDiagnosticInfo);
             SceneManager.LoadScene((int)SceneIndexes.Diagnostico);
         }

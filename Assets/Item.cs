@@ -11,8 +11,9 @@ public class Item : MonoBehaviour, IHandled
     public Image bottleSpiritImage;
     public Image ingredienteImage;
     public Image bottleImage;
+    public TypeItem type;
     public Sprite sprite;
-    public Rigidbody2D rigidbody2D;
+    public Rigidbody2D rb2d;
     public RectTransform panelImage;
     Vector3 initialPositionPanelImages;
     private bool isMouseOver;
@@ -35,7 +36,7 @@ public class Item : MonoBehaviour, IHandled
 
     internal void ResetRigidbody()
     {
-        this.rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        this.rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     public void ResetPanelPosition()
@@ -70,6 +71,19 @@ public class Item : MonoBehaviour, IHandled
 
     public void Drop()
     {
-        rigidbody2D.constraints = RigidbodyConstraints2D.None;
+        rb2d.constraints = RigidbodyConstraints2D.None;
     }
+}
+
+
+public enum TypeItem
+{
+    batwing,
+    flower,
+    phoenixfather,
+    ogretooth,
+    earrabiit,
+    mush,
+    eye,
+    tentacle
 }

@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main_Menu.unity
+    guid: 7e468e9b709192940a5c3ecdf89e1692
+  - enabled: 1
     path: Assets/Scenes/Store_Fernando.unity
     guid: 8755037cb0e5cdb4dabc5dea68757124
   - enabled: 1
-    path: Assets/Scenes/Store.unity
-    guid: 995d6952a892c6c48b0dcb827d002a32
-  - enabled: 1
-    path: "Assets/Scenes/Diagn\xF3stico.unity"
-    guid: 76cae0793c345a74bac24cc8bfcdb1eb
+    path: Assets/Scenes/Diagnostics_Fernando.unity
+    guid: fc106203d4903464c99956ea33842e2e
   m_configObjects: {}

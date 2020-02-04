@@ -25,6 +25,10 @@ public class DragAndDrop : MonoBehaviour
     {
         isSelected = true;
         offsetMouseAndObject = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+        if (this.gameObject.tag == "ingrediente")
+        {
+            this.gameObject.GetComponent<Item>().rb2d.simulated = false;
+        }
     }
 
     private void OnMouseUp()
@@ -33,6 +37,7 @@ public class DragAndDrop : MonoBehaviour
         if (this.gameObject.tag == "ingrediente")
         {
             Item item = this.gameObject.GetComponent<Item>();
+            this.gameObject.GetComponent<Item>().rb2d.simulated = true;
             item.Drop();
         }
     }

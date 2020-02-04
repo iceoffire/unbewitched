@@ -23,15 +23,6 @@ public class Chair
         this.chairGameObject = gameObject;
     }
 
-
-    public void SitOnItAndAnimateFadeInPlayerAndUpdatePosition(Player player)
-    {
-        if (player == null) return;
-        this.playerSited = player;
-        player.MakeAnimationsAndUpdatePlayerPosition(this.chairGameObject.GetComponent<RectTransform>());
-        ChairController.UpdateAllPlayersToNextChair();
-    }
-
     public void DisposeIt()
     {
         GameObject.Destroy(this.playerSited.gameObject);
@@ -49,7 +40,8 @@ public class Chair
         this.playerSited = player;
         Vector3 finalDestination = this.chairGameObject.transform.position;
         finalDestination.y = SpawnPlayerOnStore.initialY;
-        // player.gameObject.transform.DOMove(finalDestination, 1);
+        player.gameObject.transform.DOMove(finalDestination, 1);
+        ChairController.OnSit();
     }
 }
 

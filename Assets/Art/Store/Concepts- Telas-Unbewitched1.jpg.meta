@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 8345809487284650792
     second: Concepts- Telas-Unbewitched1_0
+  - first:
+      213: 5746618613812849143
+    second: Concepts- Telas-Unbewitched1_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -121,7 +124,7 @@ TextureImporter:
         width: 376
         height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,6 +132,27 @@ TextureImporter:
       bones: []
       spriteID: 823cfacb28542d370800000000000000
       internalID: 8345809487284650792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Concepts- Telas-Unbewitched1_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 420
+        width: 365
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f966ffae2710cf40800000000000000
+      internalID: 5746618613812849143
       vertices: []
       indices: 
       edges: []

@@ -22,12 +22,7 @@ public class ChairController : MonoBehaviour
     {
         if (StoreSceneInfo.hasChangedSceneAtLeastOneTime)
         {
-            chairMiddlePosition = new List<Chair>();
-            LoadChairs();
-            OverrideChairsWithOldOlder(StoreSceneInfo.playersInfo);
-            SetBalconyToDisponible();
-            DeleteLastPlayer();
-            UpdateAllPlayersToNextChair();
+            
         }
         else
         {
@@ -38,19 +33,6 @@ public class ChairController : MonoBehaviour
     private void SetBalconyToDisponible()
     {
         this.isBalconyDisponible = true;
-    }
-
-    private void DeleteLastPlayer()
-    {
-        Chair chair = chairMiddlePosition.Where(x=>x.playerSited != null) .OrderBy(x=>x.playerSited.transform.position.x).FirstOrDefault(x => x.playerSited.playerDiagnosticInfo == StoreSceneInfo.lastPlayerDiagnosticInfo);
-        if (chair.IsDefault() || chair == null)
-        {
-            
-        }
-        else
-        {
-            chair.DisposeIt();
-        }
     }
 
     private void LoadChairs()
@@ -64,21 +46,9 @@ public class ChairController : MonoBehaviour
         }
     }
 
-    private void OverrideChairsWithOldOlder(List<PlayerDiagnosticInfo> playerDiagnosticInfos)
+    public static void OnSit()
     {
-        foreach(PlayerDiagnosticInfo playerDiagnosticInfo in playerDiagnosticInfos)
-        {
-            if (ThereIsAnyFreeChairToGet())
-            {
-                Chair freeChair = GetFirstChairFree();
-                SpawnPlayerOnStore.SpawnInChairWithoutAnimation(freeChair, playerDiagnosticInfo);
-            }
-        }
-    }
-
-    public static bool CanMakeAPlayerGoToBalcony()
-    {
-        return singleton.isBalconyDisponible && chairMiddlePosition.Where(x=>x.playerSited).Count()>0;
+        UpdateAllPlayersToNextChair();
     }
 
     static void SendFirstPlayerToBalcony()
@@ -142,17 +112,7 @@ public class ChairController : MonoBehaviour
 
     private static void UpdatePlayersSittedsToNextChair()
     {
-        List<Chair> oldChairs = chairMiddlePosition.ToList();
-        oldChairs = oldChairs.Where(x=>x.chairGameObject!=null).OrderBy(x => x.chairGameObject.transform.position.x).ToList();
-        int i = 0;
-        foreach(Chair chair in chairMiddlePosition.Where(x=>x.chairGameObject!=null).OrderBy(x=>x.chairGameObject.transform.position.x))
-        {
-            if (i < chairMiddlePosition.Count())
-            {
-                chair.SitOnIt(oldChairs[i].playerSited);
-                i++;
-            }
-        }
+        
     }
 
 
@@ -190,5 +150,10 @@ public class ChairController : MonoBehaviour
     public static bool ThereIsAnyFreeChairToGet()
     {
         return chairMiddlePosition.Count(x => !x.isUsed) > 0;
+    }
+
+    public static bool CanMakeAPlayerGoToBalcony()
+    {
+        return singleton.isBalconyDisponible && chairMiddlePosition.Where(x=>x.playerSited).Count()>0;
     }
 }
