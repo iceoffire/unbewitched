@@ -46,6 +46,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         pause.SetActive(false);
-        SceneManager.LoadScene((int)SceneIndexes.StoreFernando);
+        SceneManager.LoadScene("Store");
     }
 }

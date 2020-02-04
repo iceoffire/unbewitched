@@ -21,16 +21,16 @@ public class SpawnPlayerOnStore : MonoBehaviour
 
     private void StartSpawningPlayerOnStore()
     {
-        StartCoroutine(SpawnPlayerEveryFiveSeconds());
+        StartCoroutine(SpawnPlayerEveryThreeSeconds());
     }
 
-    private IEnumerator SpawnPlayerEveryFiveSeconds()
+    private IEnumerator SpawnPlayerEveryThreeSeconds()
     {
         yield return new WaitForSeconds(2);
         while(true)
         {
             VerifyIfCanSpawnAndSpawn();
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
         }
     }
 
@@ -40,6 +40,8 @@ public class SpawnPlayerOnStore : MonoBehaviour
         {
             Player player = SpawnPlayerAndSetOriginPosition();
             Chair freeChair = ChairController.GetFirstChairFree();
+            PlayerDiagnosticInfo playerDiagnosticInfo = GetRandomPlayerDiagnosticInfo();
+            player.UpdateValuesAndDraw(playerDiagnosticInfo);
             singleton.StartCoroutine(WaitHalfSecondAnsSitOnTheChair(player,freeChair));
         }
     }

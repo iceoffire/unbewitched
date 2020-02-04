@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TDDDiagnostico : MonoBehaviour
 {
-    private IEnumerator Start()
+    public PlayerDiagnosticInfo playerDiagnosticInfo;
+    private void Awake()
     {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene((int)SceneIndexes.Store);
+        DiagnosticSceneInformation.playerDiagnosticInfo = playerDiagnosticInfo;
     }
 }

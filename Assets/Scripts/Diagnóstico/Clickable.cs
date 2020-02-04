@@ -14,7 +14,7 @@ public class Clickable : MonoBehaviour
         {
             if (!OptionsToolController.IsMouseOver())
             {
-                if (IsGamePlaying())
+                if (IsGameMakingDiagnostic() && !DiagnosticSceneController.ThereIsDialogToShow())
                 {
                     OptionsToolController.Show(this, notifyInformation);
                 }
@@ -22,9 +22,9 @@ public class Clickable : MonoBehaviour
         }
     }
 
-    private bool IsGamePlaying()
+    private bool IsGameMakingDiagnostic()
     {
-        return DiagnosticSceneController.diagnosticState == DiagnosticSceneController.DiagnosticState.MakingPotion;
+        return DiagnosticSceneController.diagnosticState == DiagnosticState.MakingDiagnostic;
     }
 
     private void OnMouseEnter()

@@ -23,7 +23,10 @@ public class OptionsToolController : MonoBehaviour
 
     public static void Hide()
     {
-        singleton.StartCoroutine(_AnimateFadeOut());
+        if (singleton.gameObject.activeSelf)
+        {
+            singleton.StartCoroutine(_AnimateFadeOut());
+        }
     }
     
 

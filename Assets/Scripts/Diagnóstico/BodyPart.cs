@@ -10,6 +10,7 @@ public class BodyPart : MonoBehaviour
     [SerializeField]
     List<BodyImage> bodyImages;
 
+    [HideInInspector]
     public Image image;
     BodyPartOrigin bodyPartOrigin;
 

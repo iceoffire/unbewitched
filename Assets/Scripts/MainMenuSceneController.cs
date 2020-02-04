@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuSceneController : MonoBehaviour
 {
     // Start is called before the first frame update
     public void Play()
     {
-        SceneManager.LoadScene(1); //Scene 1 is Game
+        SceneManager.LoadScene("Store"); //Scene 1 is Game
     }
 }

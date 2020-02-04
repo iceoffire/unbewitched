@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteInEditMode]
-public class Item : MonoBehaviour, IHandled
+public class Item : MonoBehaviour
 {
     public Image bottleSpiritImage;
     public Image ingredienteImage;

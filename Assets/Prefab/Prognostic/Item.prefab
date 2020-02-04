@@ -64,8 +64,9 @@ MonoBehaviour:
   bottleSpiritImage: {fileID: 1700473528066508126}
   ingredienteImage: {fileID: 972921883667957429}
   bottleImage: {fileID: 8317515629205143462}
+  type: 0
   sprite: {fileID: 21300000, guid: b17c6448fb40f774fa84f33b7b2c1790, type: 3}
-  rigidbody2D: {fileID: 7899677066613551687}
+  rb2d: {fileID: 7899677066613551687}
   panelImage: {fileID: 7592389204664143637}
   initialLocalPosition: {x: -960, y: -540, z: 0}
 --- !u!61 &3717338014594697823

@@ -8,65 +8,53 @@ public class DiagnosticSceneController : MonoBehaviour
     static DiagnosticSceneController singleton;
     static PlayerDiagnosticInfo playerDiagnosticInfo;
     int dialogNumber=0;
-    static DiagnosticState _diagnosticState;
-    public static DiagnosticState diagnosticState
-    {
-        set
-        {
-            switch(value)
-            {
-                case DiagnosticState.MakingPotion:
-                    ChangeGameToMakingPotions();
-                    break;
-                case DiagnosticState.MakingDiagnostic:
-                    ChangeGameToDiagnostic();
-                    break;
-            }
-            _diagnosticState = value;
-        }
-        get
-        {
-            return _diagnosticState;
-        }
-    }
-
-    private static void ChangeGameToDiagnostic()
-    {
-        DiagnosticPanelController.Show();
-        PrognosticPanelController.Hide();
-    }
-
-    private static void ChangeGameToMakingPotions()
-    {
-        PrognosticPanelController.Show();
-        DiagnosticPanelController.Hide();
-    }
+    public static DiagnosticState diagnosticState;
 
     private void Awake()
     {
         singleton = this;
-        diagnosticState = DiagnosticState.MakingPotion;
     }
 
     public void Start()
     {
+        ChangeGameToDiagnostic();
         LoadPlayerInformantionAndShowDialog();
+    }
+
+    public void _ChangeGameToDiagnostic()
+    {
+        ChangeGameToDiagnostic();
+    }
+
+    public void _ChangeGameToMakingPotions()
+    {
+        ChangeGameToMakingPotions();
+    }
+
+    public static void ChangeGameToDiagnostic()
+    {
+        diagnosticState = DiagnosticState.MakingDiagnostic;
+        DiagnosticPanelController.Show();
+        PrognosticPanelController.Hide();
+    }
+
+    public static void ChangeGameToMakingPotions()
+    {
+        diagnosticState = DiagnosticState.MakingPotion;
+        PrognosticPanelController.Show();
+        DiagnosticPanelController.Hide();
+        OptionsToolController.Hide();
     }
 
     static void LoadPlayerInformantionAndShowDialog()
     {
         LoadPlayerInfo(DiagnosticSceneInformation.playerDiagnosticInfo);
-        SetStatusToShowingDialog();
-    }
-
-    private static void SetStatusToShowingDialog()
-    {
-        diagnosticState = DiagnosticState.MakingDiagnostic;
+        ChangeGameToDiagnostic();
     }
 
     private void Update()
     {
-        if (IsShowingDialog())
+        if (IsMakingDiagnostic())
         {
             if (IsLeftMouseButtonDown())
             {
@@ -75,7 +63,7 @@ public class DiagnosticSceneController : MonoBehaviour
                     ShowNextDialog();
                     dialogNumber++;
                 }
-                else
+                if (!ThereIsDialogToShow())
                 {
                     SetStateToPlaying();
                 }
@@ -85,7 +73,7 @@ public class DiagnosticSceneController : MonoBehaviour
 
     private void SetStateToPlaying()
     {
-        diagnosticState = DiagnosticState.MakingPotion;
+        diagnosticState = DiagnosticState.MakingDiagnostic;
     }
 
     private void ShowNextDialog()
@@ -93,12 +81,12 @@ public class DiagnosticSceneController : MonoBehaviour
         DialogPanelController.SetTextAnimated(playerDiagnosticInfo.preDialogForTheWitcher[dialogNumber]);
     }
 
-    private bool ThereIsDialogToShow()
+    public static bool ThereIsDialogToShow()
     {
-        return playerDiagnosticInfo.preDialogForTheWitcher.Count > dialogNumber;
+        return playerDiagnosticInfo.preDialogForTheWitcher.Count > singleton.dialogNumber;
     }
 
-    private bool IsShowingDialog()
+    private bool IsMakingDiagnostic()
     {
         return diagnosticState == DiagnosticState.MakingDiagnostic;
     }
@@ -107,6 +95,8 @@ public class DiagnosticSceneController : MonoBehaviour
     {
         DiagnosticSceneController.playerDiagnosticInfo = playerDiagnosticInfo;
         LoadBody(playerDiagnosticInfo);
+        singleton.ShowNextDialog();
+        singleton.dialogNumber++;
     }
 
     private static void LoadBody(PlayerDiagnosticInfo playerDiagnosticInfo)
@@ -142,9 +132,9 @@ public class DiagnosticSceneController : MonoBehaviour
         return Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON);
     }
 
-    public enum DiagnosticState
-    {
-        MakingDiagnostic,
-        MakingPotion
-    }
+}
+public enum DiagnosticState
+{
+    MakingDiagnostic,
+    MakingPotion
 }

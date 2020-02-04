@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
             DiagnosticSceneInformation.LoadInformation(this.playerDiagnosticInfo);
             // SpawnPlayerOnStore.StopCoroutines();
             StoreSceneInfo.SaveOldInformation(ChairController.GetChairsInfo(), this.playerDiagnosticInfo);
-            SceneManager.LoadScene((int)SceneIndexes.Diagnostico);
+            SceneManager.LoadScene("Diagnostico");
         }
     }
 

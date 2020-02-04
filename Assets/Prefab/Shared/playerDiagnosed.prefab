@@ -96,6 +96,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 5004a777b1dc4fc4f886481fdf96f8d5, type: 3}
   - bodyPartOrigin: 3
     image: {fileID: 21300000, guid: 03b161d552b6b6243889f5fa50a92392, type: 3}
+  image: {fileID: 0}
 --- !u!60 &1693761522842084551
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -319,6 +320,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: c249efb77abb88f40a267fd63a0f48b6, type: 3}
   - bodyPartOrigin: 3
     image: {fileID: 21300000, guid: 6b12d85d5b6afde46b7d41c094730423, type: 3}
+  image: {fileID: 0}
 --- !u!61 &1693761523030877782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -332,7 +334,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 11.1, y: 126.5}
+  m_Offset: {x: 17.497055, y: 192.50981}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -343,7 +345,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 165.49, y: 152.94}
+  m_Size: {x: 227.1369, y: 241.92307}
   m_EdgeRadius: 0
 --- !u!1 &1693761523201045419
 GameObject:
@@ -442,6 +444,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 847ababb2ef1dc44fa930d5f598a8bf7, type: 3}
   - bodyPartOrigin: 3
     image: {fileID: 21300000, guid: 0f66939a484cb4c4aa3deaa7f616360a, type: 3}
+  image: {fileID: 0}
 --- !u!60 &1693761523201045409
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -602,6 +605,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 1b052ebe1332c804b8bf2ed4ac9257c6, type: 3}
   - bodyPartOrigin: 3
     image: {fileID: 21300000, guid: 9af4fc22960d6b041bcab87fdb8471ec, type: 3}
+  image: {fileID: 0}
 --- !u!61 &1693761523364640572
 BoxCollider2D:
   m_ObjectHideFlags: 0

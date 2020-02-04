@@ -22,7 +22,6 @@ public class Caldeirao : MonoBehaviour
             itensInside.Add(item.type);
             IngredientesController.SpawnNewItem(item);
             Destroy(item.gameObject);
-            Debug.Log("POASDAD");
         }
     }
 }
