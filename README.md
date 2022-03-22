@@ -16,7 +16,7 @@ Bruno Petelin - Programmer
 
 Fernando Mello de Amorim - Production
 
-Gui Mendes - 2D art
+Igor Mendes - 2D art
 
 Natália Sugano - 2D art
 
